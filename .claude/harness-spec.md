@@ -30,7 +30,7 @@
 | B8 | 정의·근거·반례·반대 가정·선행조건·실패 결과로 중대한 불확실성을 공격하고 조사 가능한 사실은 사용자에게 되묻지 않음 | skill | `.claude/skills/interview/` | validated |
 | B9 | 사용자의 목적에는 충실하되 제안된 수단에는 무조건 동의하지 않고, 목적 충돌 시 의도·근거·예상 결과·더 단순하거나 효과적인 대안을 제시 | skill | `.claude/skills/interview/` | validated |
 | B10 | 독립된 결정 트랙과 의존성을 유지해 하위 주제 매몰을 방지하고, 결정 수정 시 영향받은 결정·성공 기준·검증을 다시 엶 | skill | `.claude/skills/interview/` | validated |
-| B11 | 독립 증거와 전문 판단이 필요한 위험 표면만 동적 검토 lane으로 만들고, 실행 전 lane 수·주제·비용을 승인받아 위험별 서브에이전트를 인터뷰어 종합보다 가벼운 기본 모델 티어로 병렬 실행한 뒤 메인 인터뷰어가 검증·종합 | skill | `.claude/skills/interview/` | generated |
+| B11 | 독립 증거와 전문 판단이 필요한 위험 표면만 동적 검토 lane으로 만들고, 실행 전 lane 수·주제·비용을 승인받아 위험별 서브에이전트를 인터뷰어 종합보다 가벼운 기본 모델 티어로 병렬 실행한 뒤 메인 인터뷰어가 검증·종합 | skill | `.claude/skills/interview/` | validated |
 | B12 | 수치 점수 없는 완결성 루브릭으로 방향을 바꾸는 미해결 결정을 차단하고, 한 문장 목표와 전체 계획을 먼저 제시해 명시적 승인을 받음 | skill | `.claude/skills/interview/` | validated |
 | B13 | 승인 후 저장 경로와 충돌을 해결하고, 기본 한 파일 또는 승인된 의미적 분할로 계획을 저장한 뒤 다시 읽어 승인본과 일치하는지 검증 | skill | `.claude/skills/interview/` | validated |
 | B14 | 중도 종료 시 아무 파일도 쓰지 않으며 계획 저장 외의 구현, 코드·설정·데이터 변경, commit·push·PR을 금지 | skill | `.claude/skills/interview/` | validated |
@@ -46,10 +46,10 @@
 | B24 | 번들 reference, script, custom agent, workflow, 추가 hook | — | — | declined |
 | B25 | `allowed-tools`를 이용한 도구 제한 | — | — | declined |
 | B26 | 질문 횟수보다 계획·구현·재작업까지의 사용자 총부담을 최적화하고, 조사로 제거할 수 있거나 계획을 바꾸지 않는 질문은 생략하되 재작업 비용이 더 큰 방향 변경 질문은 체감 마찰만을 이유로 생략하지 않음 | skill | `.claude/skills/interview/` | validated |
-| B27 | 드릴다운 전 스윕에서 전체 트랙 명부를 해결·열림·미착수 상태와 함께 평범한 대화 텍스트로 진술하며, ledger에만 들고 있는 것으로는 충족되지 않음 | skill | `.claude/skills/interview/` | generated |
-| B28 | 명부 제시를 인터뷰어의 프레임을 물려받지 않은 유일한 관점인 사용자에게 빠진 트랙을 지적해 달라는 요청으로 규정하고, 발산에는 메뉴가 잘못된 도구이므로 명부와 초대는 산문으로 하며 `AskUserQuestion`은 명부의 완결성 자체가 방향을 바꾸는 결정이 됐을 때만 사용 | skill | `.claude/skills/interview/` | generated |
-| B29 | 영향 스윕에서 확인했으나 영향 없다고 판정한 항목의 이름을 대어 "확인했고 유효"와 "확인하지 않음"이 기록에서 구분되게 함 | skill | `.claude/skills/interview/` | generated |
-| B30 | 오프닝 브리프 이전 금지 목록에 서브에이전트 실행을 명시해, 사용자 답변 전에는 어떤 팬아웃도 인터뷰의 프레임을 선점하지 못하게 함 | skill | `.claude/skills/interview/` | generated |
+| B27 | 드릴다운 전 스윕에서 전체 트랙 명부를 해결·열림·미착수 상태와 함께 평범한 대화 텍스트로 진술하며, ledger에만 들고 있는 것으로는 충족되지 않음 | skill | `.claude/skills/interview/` | validated |
+| B28 | 명부 제시를 인터뷰어의 프레임을 물려받지 않은 유일한 관점인 사용자에게 빠진 트랙을 지적해 달라는 요청으로 규정하고, 발산에는 메뉴가 잘못된 도구이므로 명부와 초대는 산문으로 하며 `AskUserQuestion`은 명부의 완결성 자체가 방향을 바꾸는 결정이 됐을 때만 사용. 모든 질문을 `AskUserQuestion`으로 하라는 일반 규칙에 이 초대를 유일한 명시적 예외로 이유와 함께 기록 | skill | `.claude/skills/interview/` | validated |
+| B29 | 영향 스윕에서 확인했으나 영향 없다고 판정한 항목의 이름을 대어 "확인했고 유효"와 "확인하지 않음"이 기록에서 구분되게 함 | skill | `.claude/skills/interview/` | validated |
+| B30 | 오프닝 브리프 이전 금지 목록에 서브에이전트 실행을 명시해, 사용자 답변 전에는 어떤 팬아웃도 인터뷰의 프레임을 선점하지 못하게 함 | skill | `.claude/skills/interview/` | validated |
 
 ## Component specs
 
@@ -61,7 +61,7 @@
 - **본문 구조** — Mission and boundaries → Evidence and authority model → Objective-aligned candor → Context-first interview loop → Question interface → Breadth and revision handling → Risk-based independent review → Completion and approval → Plan artifact contract → Persistence, interruption, and prohibited follow-on work 순서를 고정한다.
 - **증거 계약** — 로컬 자료를 먼저 읽고, 계획이 바뀔 수 있는 최신·고위험 외부 사실만 권위 있는 출처로 검증한다. 사실, 출처 있는 추론, 사용자 결정, 명시적 가정, 미해결을 구분하며 외부 관찰을 요구사항으로 자동 승격하지 않는다.
 - **인터뷰 계약** — 결정 지도를 유지하고 가장 파급력이 큰 불확실성을 조사와 비판적 질문으로 줄인다. 질문 수나 순서를 고정하지 않고, 조사로 답할 수 있는 사실 대신 사용자만 정할 수 있는 가치·우선순위·권한을 묻는다. 루프의 스윕 단계는 전체 트랙 명부를 대화 텍스트로 출력해야 충족되고(B27), 영향 스윕은 영향 없다고 판정한 항목까지 이름을 댄다(B29).
-- **발산 계약** — 명부 제시는 상태 보고가 아니라 인터뷰어의 프레임을 물려받지 않은 사용자에게 빠진 트랙을 요청하는 행위다. 발산 국면에서는 미리 만든 선택지가 답을 인터뷰어가 이미 생각한 것으로 좁히므로 명부와 초대를 산문으로 쓰고, `AskUserQuestion`은 명부의 완결성 자체가 방향을 바꾸는 결정이 된 뒤에만 쓴다(B28).
+- **발산 계약** — 명부 제시는 상태 보고가 아니라 인터뷰어의 프레임을 물려받지 않은 사용자에게 빠진 트랙을 요청하는 행위다. 발산 국면에서는 미리 만든 선택지가 답을 인터뷰어가 이미 생각한 것으로 좁히므로 명부와 초대를 산문으로 쓰고, `AskUserQuestion`은 명부의 완결성 자체가 방향을 바꾸는 결정이 된 뒤에만 쓴다(B28). 이 초대는 모든 사용자 질문을 `AskUserQuestion`으로 하라는 규칙의 유일한 예외이므로, 그 규칙 자체에 예외와 이유를 함께 적어 둔다 — 적지 않으면 두 조항이 정면으로 충돌한다.
 - **질문 비용 계약** — 눈에 보이는 질문 수가 아니라 계획부터 재작업까지 사용자가 치르는 총비용을 최적화한다. 첫 자유서술 브리프 이후의 질문은 조사로 불확실성을 줄이고 답이 바꿀 결정을 명시하며 근거 있는 추천을 제공한다. 답이 방향을 바꿀 수 있고 잘못 추측한 구현의 수정 비용이 더 크다면, 추가 질문이 귀찮아 보인다는 이유만으로 생략하지 않는다.
 - **검토 계약** — 독립 검토의 이득이 실제로 있는 위험 표면만 중복 제거한 lane으로 제안한다. `AskUserQuestion`으로 비용과 범위를 승인받은 경우에만 위험별 서브에이전트를 병렬 실행하고, 메인 인터뷰어가 출처와 모순을 재검증한 뒤 사용자 결정만 다시 묻는다. lane은 런타임이 티어 선택을 허용할 때 인터뷰어 종합보다 가벼운 티어를 기본으로 하며, 종합 전용 상위 티어 에이전트는 두지 않는다(B11).
 - **종료 계약** — 방향을 바꾸는 미해결 결정이나 모순이 없을 때 한 문장 목표와 전체 계획을 보여 주고 `AskUserQuestion`으로 승인받는다. 승인 전에는 쓰지 않고, 승인 후에는 합의된 Markdown 계획만 저장하고 재독해한다.
@@ -108,7 +108,9 @@
 - **질문 비용 원칙 후속 검사 (2026-08-16, 통과)** — B26을 `Question interface`의 두 문단으로 반영했다. `audit_harness.py --path . --json`은 lint 오류 0건, 경고 0건, spec drift 0건을 보고했고 `validate_harness.py --path . --strict`는 `PASS`였다. `git diff --check`는 통과했고 변경 경로는 명세와 스킬 두 파일뿐이었다. 의미 대조에서는 필요한 방향 변경 질문을 생략하지 않는 원칙과 불필요한 질문을 먼저 제거하는 제한이 함께 존재하며 스킬이 159줄임을 확인했다.
 - **발산 보강 정적 검사 (2026-08-22, 통과)** — `audit_harness.py --path .`는 spec drift 양방향 0건, dead link 0건, lint 오류 0건·경고 0건을 보고했고 suggested mode가 `sync`에서 `extend or improve`로 돌아왔다. `validate_harness.py --path . --strict`는 오류 0건·경고 0건으로 `PASS`였고, always-loaded context는 `CLAUDE.md`도 unscoped rule도 없어 0줄이다. `git diff --check`는 출력이 없었고 `git diff --name-only`는 `.claude/harness-spec.md`와 `.claude/skills/interview/SKILL.md` 두 경로만 출력했다. 스킬은 159줄에서 163줄이 됐다. hook을 생성하거나 배선하지 않았으므로 `test_hook.py`는 해당 없다.
 - **사용자 스코프 심링크 확인 (2026-08-22)** — 감사가 보고하는 `~/.claude/skills/interview` 충돌 후보는 의도된 심링크다. `readlink`로 이 저장소의 `.claude/skills/interview`를 가리킴을 확인했으며 별도 사본이 아니다.
-- **발산 보강 의미 대조 (2026-08-22)** — B11, B27~B30 각각을 `SKILL.md`의 구체 문장과 1:1로 대조했다. B27은 루프 6단계, B28은 `Breadth and revision handling`의 신규 두 문단, B29는 같은 절의 영향 스윕 문장, B30은 13행 오프닝 순서 계약, B11의 티어 절은 `Risk-based independent review`의 lane 실행 문단이다. 신규 절이 기존 68행(모든 사용자 질문은 `AskUserQuestion`), 78행(오프닝 질문의 자유 입력), 102행(메인 인터뷰어가 종합)과 모순되지 않는지 함께 확인했다.
+- **발산 보강 의미 대조 (2026-08-22, 수정 후 통과)** — B11, B27~B30 각각을 `SKILL.md`의 구체 문장과 1:1로 대조했다. B27은 루프 6단계, B28은 `Breadth and revision handling`의 신규 두 문단과 `Question interface`의 예외 절, B29는 같은 절의 영향 스윕 문장, B30은 13행 오프닝 순서 계약, B11의 티어 절은 `Risk-based independent review`의 lane 실행 문단이다. 대조는 8개 렌즈(E1~E5 각각, 스펙 1:1, 내부 모순, 저작 품질)로 돌린 뒤 상위 티어 판정 에이전트가 확정 2건·기각 3건으로 정리했다.
+- **68행 모순 발견 및 수정 (2026-08-22)** — 계획은 68행이 이미 산문 자리를 열어 뒀으므로 손댈 필요가 없다고 봤지만, 그 논증은 명부 *진술*(summary)에만 성립하고 E2가 새로 넣은 *초대*(request)에는 성립하지 않는다. 68행은 예외 없이 "Every user-facing question must use `AskUserQuestion` … do not bury a question in prose"이므로 신규 88행 "Keep that invitation in prose"와 정면으로 충돌했다. 68행 끝에 예외 절 한 문장을 덧붙여 해소했고, 이유를 함께 써서 예외가 훈계가 아니라 재도출 가능한 원칙이 되게 했다. 행수는 늘지 않았고 86·88행은 손대지 않았다.
+- **행번호 인용 정정 (2026-08-22)** — 위 대조 기록이 처음에 `102행(메인 인터뷰어가 종합)`으로 적었으나 신규 두 문단이 그 앞에 4행을 더해 현재는 `106행`이다. 인용을 바로잡았다.
 - **행동 측정은 미완 (2026-08-22)** — 이번 변경이 고치려는 것을 직접 재는 지표는 두 개다. (1) 드릴다운 전에 트랙 명부가 대화에 실제로 출력되는가, (2) 그것을 본 사용자가 트랙을 하나라도 추가하는가. (2)가 핵심 지표이며 실주제로 `/interview`를 한 번 돌려야 측정된다. 정적·의미 검사만으로는 판정할 수 없고, `AskUserQuestion`이 headless·서브에이전트에서 불가하므로 자동 e2e로도 대체할 수 없다. 측정에서 (2)가 나오지 않으면 명부 제시가 초대로 읽히지 않는 것이므로 B28의 문구를 고친다.
 
 ## Change history

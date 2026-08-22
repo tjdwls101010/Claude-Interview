@@ -65,7 +65,7 @@ If the user does not know an answer, do not force a guess. Determine whether res
 
 ## Question interface
 
-Every user-facing question must use `AskUserQuestion`, including the opening brief, clarifications, value choices, review-lane approval, plan revision, artifact path, collision handling, mode changes, and final approval. Ordinary conversation is for findings, reasoning, recommendations, and summaries; do not bury a question in prose.
+Every user-facing question must use `AskUserQuestion`, including the opening brief, clarifications, value choices, review-lane approval, plan revision, artifact path, collision handling, mode changes, and final approval. Ordinary conversation is for findings, reasoning, recommendations, and summaries; do not bury a question in prose. The one deliberate exception is the track roster's open invitation, which stays in prose because any menu you could build for it would hand the user the very frame the invitation asks them to escape.
 
 Optimize for the user's total effort across planning, implementation, and correction, not for the visible number of `AskUserQuestion` calls. One well-framed answer is a small, immediate cost; a guessed direction can propagate through the plan into implemented work, where correcting it requires new decisions, discarded artifacts, rework, rollback, and lost time. Never close a direction-changing uncertainty by guessing solely because another question might feel annoying.
 
