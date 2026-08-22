@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 Turn an initially incomplete project idea into a plan that another competent executor can follow without inventing requirements or reopening a direction-changing decision. The deliverable is the user's informed agreement, captured in a Markdown plan only after explicit approval; producing code is never part of this skill.
 
-This command has no argument interface. Even if the invocation contains trailing text, do not treat it as the brief. Your first action, before reading files, searching, checking versions, or making recommendations, must be one `AskUserQuestion` that asks the user to describe the topic, purpose, and expected outcome in free form. Do not constrain the opening answer to predefined project categories. If the user cancels, stop without writing anything.
+This command has no argument interface. Even if the invocation contains trailing text, do not treat it as the brief. Your first action, before reading files, searching, launching subagents, checking versions, or making recommendations, must be one `AskUserQuestion` that asks the user to describe the topic, purpose, and expected outcome in free form. Anything that fans out before that answer commits the interview to a frame the user never saw, and the user is the one participant whose frame is independent of yours. Do not constrain the opening answer to predefined project categories. If the user cancels, stop without writing anything.
 
 Use the user's conversation language for every question, synthesis, approval proposal, and saved plan. Keep these instructions internal and do not make the user translate into the language of this file.
 
@@ -57,7 +57,7 @@ Run an adaptive loop rather than a fixed questionnaire:
 3. Choose the smallest critical probe that can expose the uncertainty: clarify a definition, test the evidence, seek a counterexample, reverse the governing assumption, inspect a prerequisite, or make the failure outcome concrete. Do not mechanically use every probe.
 4. State the evidence and implications that frame the decision, then ask only the remaining user-owned choice through `AskUserQuestion`.
 5. Update the decision, its rationale, dependencies, affected success criteria, and validation consequences in the ledger.
-6. Sweep the full decision map before drilling further so the easiest subtopic does not crowd out a more consequential open track.
+6. Sweep the full decision map before drilling further so the easiest subtopic does not crowd out a more consequential open track. State that sweep as ordinary conversation text, naming every track and its status as resolved, open, or not yet started; a roster held silently in the ledger does not satisfy this. A sweep you both run and judge uses the same frame that created the gap, and a frame cannot find what it never thought of — putting the roster in the conversation is what hands it to an observer whose frame is different.
 
 The loop has no target number of questions, rounds, waves, or numerical ambiguity score. Progress is the conversion of consequential unknowns into sourced facts, explicit decisions, bounded assumptions, or properly owned non-blocking deferrals.
 
@@ -65,7 +65,7 @@ If the user does not know an answer, do not force a guess. Determine whether res
 
 ## Question interface
 
-Every user-facing question must use `AskUserQuestion`, including the opening brief, clarifications, value choices, review-lane approval, plan revision, artifact path, collision handling, mode changes, and final approval. Ordinary conversation is for findings, reasoning, recommendations, and summaries; do not bury a question in prose.
+Every user-facing question must use `AskUserQuestion`, including the opening brief, clarifications, value choices, review-lane approval, plan revision, artifact path, collision handling, mode changes, and final approval. Ordinary conversation is for findings, reasoning, recommendations, and summaries; do not bury a question in prose. The one deliberate exception is the track roster's open invitation, which stays in prose because any menu you could build for it would hand the user the very frame the invitation asks them to escape.
 
 Optimize for the user's total effort across planning, implementation, and correction, not for the visible number of `AskUserQuestion` calls. One well-framed answer is a small, immediate cost; a guessed direction can propagate through the plan into implemented work, where correcting it requires new decisions, discarded artifacts, rework, rollback, and lost time. Never close a direction-changing uncertainty by guessing solely because another question might feel annoying.
 
@@ -83,7 +83,11 @@ Do not ask for confirmation of an established fact. State it with its source and
 
 Derive independent decision tracks from the actual project instead of imposing universal categories. For each track, retain its open question, evidence, authority, status, dependencies, downstream consumers, and last material change. Keep the map broad enough to notice neglected outcomes, operations, human workflows, and validation, but include only domains relevant to this project.
 
-After each material decision or research finding, perform an impact sweep: which other decisions assumed the old state, which success criteria change, which risks move, and which validation scenarios no longer prove the intended outcome. Reopen every affected item and no unaffected item.
+The track roster the loop's sweep puts in the conversation is a request, not a status report. The user holds domain knowledge and did not inherit the categories you derived, which makes them the only available observer who can see a track that is structurally invisible to you. State the roster and explicitly invite them to name what is missing, mis-scoped, or already settled.
+
+Keep that invitation in prose. A menu is the wrong instrument for divergence: prepared options narrow the answer to alternatives you already thought of, which is precisely the failure the roster exists to correct. Reserve `AskUserQuestion` for the point where the roster's own completeness has become a direction-changing decision — the same reasoning that makes the opening brief's free-input route the intended response rather than a fallback.
+
+After each material decision or research finding, perform an impact sweep: which other decisions assumed the old state, which success criteria change, which risks move, and which validation scenarios no longer prove the intended outcome. Reopen every affected item and no unaffected item, and name the items you checked and judged unaffected. Unnamed, "checked and still valid" and "never checked" both appear as silence, and nothing in the record can tell them apart.
 
 When the user revises an earlier answer, treat revision as new information rather than inconsistency to suppress. Preserve why the prior decision changed, propagate the effect through dependencies, and re-ask only decisions that are no longer valid. Never keep a stale downstream choice merely to preserve apparent progress.
 
@@ -97,7 +101,7 @@ Deduplicate proposed lanes by failure surface, not job title. Two specialties th
 
 Before launching any review, show the proposed lane count, each lane's exact question and evidence boundary, why independence is useful, and the expected time or token cost. Use `AskUserQuestion` to obtain approval to run, revise, or skip the set. Give an honest range when one is supportable; otherwise state which cost is unknown and why rather than fabricating precision.
 
-If approved and parallel subagents are available, launch one subagent per lane concurrently. Give each the same objective, relevant evidence snapshot, current decisions, and explicit boundary. Require claims with sources, counterarguments, plausible failure modes, decision implications, and residual uncertainty; do not let a reviewer make the user's product or value decisions.
+If approved and parallel subagents are available, launch one subagent per lane concurrently. Give each the same objective, relevant evidence snapshot, current decisions, and explicit boundary. Require claims with sources, counterarguments, plausible failure modes, decision implications, and residual uncertainty; do not let a reviewer make the user's product or value decisions. Where the runtime lets you choose, default each lane to a lighter model tier than your own synthesis: a lane runs one perspective against a bounded evidence slice, which does not demand the tier that reconciling contradictions across lanes does, and a lane left unspecified inherits the session's tier — so an expensive session silently makes every lane expensive without buying any additional independence.
 
 The main interviewer owns synthesis. Check source quality, distinguish corroboration from copied consensus, reconcile contradictions, map findings back to affected decisions, and ask the user only for choices that the evidence cannot make. Reviewer agreement is evidence, not approval.
 
